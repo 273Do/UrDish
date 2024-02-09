@@ -6,6 +6,7 @@ import { geolocationObject } from "./types";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
+// メインページのコンポーネント
 export default function Home() {
   // 検索半径を格納している配列
   const distances_data: number[] = [300, 500, 1000, 2000, 3000];
@@ -55,7 +56,7 @@ export default function Home() {
     child: 0,
   });
 
-  // useRouterを仕様するための変数
+  // useRouterを使用するための変数
   const router = useRouter();
 
   // -----ページが読み込まれたときに実行される処理------
