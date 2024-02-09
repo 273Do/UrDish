@@ -1,15 +1,25 @@
 import * as layout from "@/app/components/layouts/Index";
 import { inter } from "../utils/font";
 import Link from "next/link";
+import { fetchRestaurantData } from "../utils/apiUtils";
 
 // SSR
+// レストラン一覧ページのコンポーネント
 const Restaurants = async ({
-  params,
+  // ページのurlからパラメータとクエリを取得
+  //   params,
   searchParams,
 }: {
-  params: { slug: string };
+  //   params: { slug: string };
   searchParams: { [key: string]: string | string[] | undefined };
 }) => {
+  console.log(searchParams.query);
+  // APIを叩いてレストラン一覧のデータを取得
+  const restaurants: any = await fetchRestaurantData(
+    "&lat=34.67&lng=135.52&range=5&order=4"
+  );
+  //   console.log(restaurants);
+
   return (
     <div className={`App ${inter.className}`}>
       <layout.Header />
