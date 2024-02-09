@@ -1,6 +1,6 @@
-import * as layout from "@/app/components/layouts/Index";
 import { inter } from "@/app/utils/font";
-import { fetchRestaurantData } from "@/app/utils/apiUtils";
+import { fetchRestaurantData } from "@/app/utils/api";
+import * as layout from "@/app/components/Index";
 
 // SSR
 // レストラン詳細ページのコンポーネント
