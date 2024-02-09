@@ -2,7 +2,7 @@ import { restaurantObject } from "@/app/types";
 import Link from "next/link";
 import Image from "next/image";
 
-// レストラン一覧のコンポーネント
+// レストラン一覧表示のコンポーネント
 const RestaurantList = ({ restaurant }: { restaurant: restaurantObject }) => {
   return (
     <Link href={`/restaurants/${restaurant.id}`}>

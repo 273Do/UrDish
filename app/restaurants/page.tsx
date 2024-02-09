@@ -4,6 +4,7 @@ import { fetchRestaurantData } from "../utils/api";
 import { restaurantObject } from "../types";
 import * as layout from "@/app/components/Index";
 import { RestaurantList } from "@/features/restaurants/components";
+import BackMainPageButton from "../components/elements/BackMainPageButton/BackMainPageButton";
 
 // SSR
 // レストラン一覧ページのコンポーネント
@@ -32,6 +33,7 @@ const Restaurants = async ({
           <RestaurantList restaurant={restaurant} key={restaurant.id} />
         ))
       )}
+      <BackMainPageButton />
       <layout.Footer />
     </div>
   );
