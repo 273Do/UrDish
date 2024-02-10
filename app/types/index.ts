@@ -5,7 +5,7 @@ export type geolocationObject = {
 };
 
 // APIで取得するレストランの型
-export type restaurant = {
+export type restaurantObject = {
   id: string;
   name: string;
   logo_image: string;

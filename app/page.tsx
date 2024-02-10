@@ -1,10 +1,10 @@
 "use client"; //CSR
 
-import * as layout from "@/app/components/layouts/Index";
 import { inter } from "./utils/font";
 import { geolocationObject } from "./types";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import * as layout from "@/app/components/Index";
 
 // メインページのコンポーネント
 export default function Home() {
@@ -21,6 +21,7 @@ export default function Home() {
     longitude: 0,
   });
   // 検索フィルターの状態を保持する変数
+  // TODO:別ファイルにオブジェクトを読み込んでstringで返すようにするfubc(locarion, filter)
   const [filters, setFilters] = useState({
     wifi: 0,
     wedding: 0,

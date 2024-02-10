@@ -1,7 +1,10 @@
-import * as layout from "@/app/components/layouts/Index";
 import { inter } from "../utils/font";
 import Link from "next/link";
-import { fetchRestaurantData } from "../utils/apiUtils";
+import { fetchRestaurantData } from "../utils/api";
+import { restaurantObject } from "../types";
+import * as layout from "@/app/components/Index";
+import { RestaurantList } from "@/features/restaurants/components";
+import BackMainPageButton from "../components/elements/BackMainPageButton/BackMainPageButton";
 
 // SSR
 // レストラン一覧ページのコンポーネント
@@ -18,19 +21,19 @@ const Restaurants = async ({
   const restaurants: any = await fetchRestaurantData(
     "&lat=34.67&lng=135.52&range=5&order=4"
   );
-  //   console.log(restaurants);
 
   return (
     <div className={`App ${inter.className}`}>
       <layout.Header />
-      <div>
-        <Link href={`/restaurants/id`}>
-          <p>レストラン1</p>
-        </Link>
-        <Link href={`/restaurants/id`}>
-          <p>レストラン2</p>
-        </Link>
-      </div>
+      {/* レストランの一覧を表示する．表示項目がなければnotFoundページを表示 */}
+      {restaurants.length === 0 ? (
+        <p>error</p>
+      ) : (
+        restaurants.map((restaurant: restaurantObject) => (
+          <RestaurantList restaurant={restaurant} key={restaurant.id} />
+        ))
+      )}
+      <BackMainPageButton />
       <layout.Footer />
     </div>
   );
