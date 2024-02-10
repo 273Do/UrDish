@@ -3,6 +3,7 @@ import { fetchRestaurantData } from "@/app/utils/api";
 import * as layout from "@/app/components/Index";
 import { RestaurantCard } from "@/features/restaurants/components";
 import BackMainPageButton from "@/app/components/elements/BackMainPageButton/BackMainPageButton";
+import NoData from "@/features/nodata/components/NoData";
 
 // SSR
 // レストラン詳細ページのコンポーネント
@@ -21,8 +22,9 @@ const RestaurantDetail = async ({
   return (
     <div className={`App ${inter.className}`}>
       <layout.Header />
+      {/* レストランの詳細を表示する．表示項目がなければnotDataページを表示 */}
       {fetch_restaurant.length === 0 ? (
-        <div>error</div>
+        <NoData />
       ) : (
         <RestaurantCard restaurant={restaurant} />
       )}

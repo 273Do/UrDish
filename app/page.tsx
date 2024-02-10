@@ -78,13 +78,13 @@ export default function Home() {
   };
   // --------------------------------------------
 
-  // スライダーを動かしたときの処理
+  // スライダーを動かしたときに検索距離を設定する処理
   const handleSliderChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSelectDistance(parseInt(e.target.value));
   };
 
-  // スライダーからマウスを離したときの処理
+  // スライダーからマウスを離したときにページ遷移をする処理
   const handleMouseUp = () => {
     // localStorage.setItem(
     //   "query",
