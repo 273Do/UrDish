@@ -20,7 +20,7 @@ const RestaurantDetail = async ({
   return (
     <div className={`App ${inter.className}`}>
       <layout.Header />
-      {/* レストランの詳細を表示する．表示項目がなければnotDataページを表示 */}
+      {/* レストランの詳細を表示する．表示項目がなければnoDataページを表示 */}
       {fetch_restaurant.length === 0 ? (
         <NoData />
       ) : (

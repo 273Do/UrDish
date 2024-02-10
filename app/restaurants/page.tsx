@@ -29,7 +29,7 @@ const Restaurants = async ({
   return (
     <div className={`App ${inter.className}`}>
       <layout.Header />
-      {/* レストランの一覧を表示する．表示項目がなければnotDataページを表示 */}
+      {/* レストランの一覧を表示する．表示項目がなければnoDataページを表示 */}
       {restaurants.length === 0 ? (
         <NoData />
       ) : (
@@ -44,6 +44,3 @@ const Restaurants = async ({
 };
 
 export default Restaurants;
-
-// U2FsdGVkX1/jbSfiW4C/1qOFpU1+3cJWfiD6M101+KqeiG5yJQQGdORqcOmGTy8cD7FTiOvPBkCU2/w6tm9h4SIcEkIIIlWNh8+ucIfFowg=
-// U2FsdGVkX1/jbSfiW4C/1qOFpU1 3cJWfiD6M101 KqeiG5yJQQGdORqcOmGTy8cD7FTiOvPBkCU2/w6tm9h4SIcEkIIIlWNh8 ucIfFowg=
