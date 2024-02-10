@@ -5,6 +5,7 @@ import { restaurantObject } from "../types";
 import * as layout from "@/app/components/Index";
 import { RestaurantList } from "@/features/restaurants/components";
 import BackMainPageButton from "../components/elements/BackMainPageButton/BackMainPageButton";
+import NoData from "@/features/nodata/components/NoData";
 
 // SSR
 // レストラン一覧ページのコンポーネント
@@ -25,9 +26,9 @@ const Restaurants = async ({
   return (
     <div className={`App ${inter.className}`}>
       <layout.Header />
-      {/* レストランの一覧を表示する．表示項目がなければnotFoundページを表示 */}
+      {/* レストランの一覧を表示する．表示項目がなければnotDataページを表示 */}
       {restaurants.length === 0 ? (
-        <p>error</p>
+        <NoData />
       ) : (
         restaurants.map((restaurant: restaurantObject) => (
           <RestaurantList restaurant={restaurant} key={restaurant.id} />
