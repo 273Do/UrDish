@@ -92,8 +92,11 @@ export default function Home() {
     // );
     // コンソールに現在地の緯度と経度を表示
     console.log(
-      `latitude: ${currentLocation.latitude}longitude: ${currentLocation.longitude}`
+      `&lat=${currentLocation.latitude}&lng=${
+        currentLocation.longitude
+      }&range=${selectDistance + 1}&order=4`
     );
+    //  "&lat=34.67&lng=135.52&range=5&order=4"
     // クエリを含んで次のページへ遷移
     router.push("/restaurants?query=hash_query");
   };
