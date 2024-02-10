@@ -10,12 +10,10 @@ import NoData from "@/features/nodata/components/NoData";
 const RestaurantDetail = async ({
   // ページのurlからパラメータとクエリを取得
   params,
-}: // searchParams,
-{
+}: {
   params: { id: string };
-  // searchParams: { [key: string]: string | string[] | undefined };
 }) => {
-  // idを指定してPIを叩いてレストランの詳細データを取得
+  // idを指定してAPIを叩いてレストランの詳細データを取得
   const fetch_restaurant = await fetchRestaurantData(`&id=${params.id}`);
   const restaurant = fetch_restaurant[0];
 
