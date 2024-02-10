@@ -93,6 +93,12 @@ export default function Home() {
         currentLocation.longitude
       }&range-${selectDistance + 1}&order-4`
     );
+    console.log(
+      `&lat-${currentLocation.latitude}&lng-${
+        currentLocation.longitude
+      }&range-${selectDistance + 1}&order-4`
+    );
+    console.log(hash);
     // クエリを含んで次のページへ遷移
     router.push(`/restaurants?q=${hash}`);
   };
