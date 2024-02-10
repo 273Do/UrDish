@@ -22,18 +22,24 @@ const RestaurantCard = ({ restaurant }: { restaurant: restaurantObject }) => {
       </div>
       <br />
       <div>
+        <p>お店メモ：{restaurant.shop_detail_memo}</p>
         <p>{restaurant.catch}</p>
         <p>{restaurant.other_memo}</p>
       </div>
       <br />
       <div>
-        <a href={`${restaurant.urls.pc}`}>
-          <p>{restaurant.urls.pc}</p>
+        <a
+          href={`${restaurant.urls.pc}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <p>予約はこちらから</p>
         </a>
       </div>
       <br />
       <div>
         <p>{restaurant.budget.average}</p>
+        <p>{restaurant.budget_memo}</p>
       </div>
       <br />
       <div>

@@ -13,6 +13,10 @@ const RestaurantList = ({ restaurant }: { restaurant: restaurantObject }) => {
         height={150}
       />
       <p>{restaurant.name}</p>
+      <div>
+        <p>{restaurant.genre.name}</p>
+        <p>{restaurant.genre.catch}</p>
+      </div>
       <p>{restaurant.mobile_access}</p>
     </Link>
   );
