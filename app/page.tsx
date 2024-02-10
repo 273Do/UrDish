@@ -5,6 +5,7 @@ import { geolocationObject } from "./types";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import * as layout from "@/app/components/Index";
+import { encryptString } from "./utils/hashing";
 
 // メインページのコンポーネント
 export default function Home() {
@@ -86,16 +87,20 @@ export default function Home() {
 
   // スライダーからマウスを離したときにページ遷移をする処理
   const handleMouseUp = () => {
-    // localStorage.setItem(
-    //   "query",
-    //   `${position.latitude}, ${position.longitude}`
-    // );
-    // コンソールに現在地の緯度と経度を表示
-    console.log(
-      `latitude: ${currentLocation.latitude}longitude: ${currentLocation.longitude}`
+    // =が含まれているとうまくハッシュ化することができないので-に置き換えている
+    const hash = encryptString(
+      `&lat-${currentLocation.latitude}&lng-${
+        currentLocation.longitude
+      }&range-${selectDistance + 1}&order-4`
     );
+    console.log(
+      `&lat-${currentLocation.latitude}&lng-${
+        currentLocation.longitude
+      }&range-${selectDistance + 1}&order-4`
+    );
+    console.log(hash);
     // クエリを含んで次のページへ遷移
-    router.push("/restaurants?query=hash_query");
+    router.push(`/restaurants?q=${hash}`);
   };
 
   return (

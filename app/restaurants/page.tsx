@@ -1,32 +1,35 @@
 import { inter } from "../utils/font";
-import Link from "next/link";
 import { fetchRestaurantData } from "../utils/api";
 import { restaurantObject } from "../types";
 import * as layout from "@/app/components/Index";
 import { RestaurantList } from "@/features/restaurants/components";
 import BackMainPageButton from "../components/elements/BackMainPageButton/BackMainPageButton";
 import NoData from "@/features/nodata/components/NoData";
+import { decryptString } from "../utils/hashing";
 
 // SSR
 // レストラン一覧ページのコンポーネント
 const Restaurants = async ({
-  // ページのurlからパラメータとクエリを取得
-  //   params,
+  // ページのurlからクエリを取得
   searchParams,
 }: {
-  //   params: { slug: string };
   searchParams: { [key: string]: string | string[] | undefined };
 }) => {
-  console.log(searchParams.query);
+  // 暗号化されたAPIのパラメータを復号化
+  // APIのパラメータを使用できる形に修正
+  const decrypted_params = decryptString(
+    searchParams.q?.toString().replace(/ /g, "+") as string
+  ).replace(/-/g, "=");
+
+  console.log(decrypted_params);
+
   // APIを叩いてレストラン一覧のデータを取得
-  const restaurants: any = await fetchRestaurantData(
-    "&lat=34.67&lng=135.52&range=5&order=4"
-  );
+  const restaurants = await fetchRestaurantData(decrypted_params);
 
   return (
     <div className={`App ${inter.className}`}>
       <layout.Header />
-      {/* レストランの一覧を表示する．表示項目がなければnotDataページを表示 */}
+      {/* レストランの一覧を表示する．表示項目がなければnoDataページを表示 */}
       {restaurants.length === 0 ? (
         <NoData />
       ) : (

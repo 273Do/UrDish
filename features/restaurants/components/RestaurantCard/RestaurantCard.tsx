@@ -14,10 +14,8 @@ const RestaurantCard = ({ restaurant }: { restaurant: restaurantObject }) => {
       <p>{restaurant.name}</p>
       <br />
       <div>
-        <p>
-          {restaurant.genre.name}
-          {restaurant.sub_genre.name}
-        </p>
+        <p> {restaurant.genre.name}</p>
+        <p>{restaurant.sub_genre?.name}</p>
         <p>{restaurant.genre.catch}</p>
       </div>
       <br />
