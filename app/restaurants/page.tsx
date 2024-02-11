@@ -17,9 +17,11 @@ const Restaurants = ({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) => {
+  // 取得したレストラン一覧のデータを格納する変数
   const [restaurantsData, setRestaurantsData] = useState<restaurantObject[]>(
     []
-  );
+  ); // ローディングの状態を保持する変数
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   // 暗号化されたAPIのパラメータを復号化
   // APIのパラメータを使用できる形に修正
   const decrypted_params = decryptString(
@@ -36,6 +38,7 @@ const Restaurants = ({
     );
     fetch_restaurants.then((data) => {
       setRestaurantsData(data);
+      setIsLoading(false);
     });
   }, []);
 
@@ -44,9 +47,14 @@ const Restaurants = ({
   return (
     <div className={`App ${inter.className}`}>
       <layout.Header />
-      {/* レストランの一覧，ページネーションを表示する．表示項目がなければnoDataページを表示 */}
+      {/* レストランの一覧，ページネーションを表示する． */}
       {restaurantsData.length === 0 ? (
-        <NoData />
+        isLoading ? (
+          <p>loading now</p>
+        ) : (
+          // 取得したデータが空かつ，ローディングが終わった場合はnoDataページを表示
+          <NoData />
+        )
       ) : (
         <Pagination data={restaurantsData} />
       )}

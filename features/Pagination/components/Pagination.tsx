@@ -16,17 +16,6 @@ const Pagination = ({ data }: { data: restaurantObject[] }) => {
   console.log(data_array);
   console.log("page_num", currentPage);
 
-  // ページの数だけボタンを表示する
-  const page_buttons = (
-    <ul>
-      {data_array.map((item, index) => (
-        <li key={index + 1} onClick={() => handleClick(index)}>
-          {index + 1}
-        </li>
-      ))}
-    </ul>
-  );
-
   // ページボタンをクリックしたときにデータを切り替える処理
   const handleClick = (index: number) => {
     setCurrentPage(index);
@@ -36,6 +25,24 @@ const Pagination = ({ data }: { data: restaurantObject[] }) => {
       behavior: "smooth",
     });
   };
+
+  // ページの数だけボタンを表示する
+  // 現在のページに合わせて，戻るボタンと進むボタンを表示する
+  const page_buttons = (
+    <ul>
+      {currentPage + 1 !== 1 && (
+        <li onClick={() => handleClick(currentPage - 1)}>{"<"}</li>
+      )}
+      {data_array.map((item, index) => (
+        <li key={index + 1} onClick={() => handleClick(index)}>
+          {index + 1}
+        </li>
+      ))}
+      {currentPage + 1 !== data_array.length && (
+        <li onClick={() => handleClick(currentPage + 1)}>{">"}</li>
+      )}
+    </ul>
+  );
 
   return (
     <div>
