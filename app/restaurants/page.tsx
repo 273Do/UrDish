@@ -4,18 +4,15 @@ import { inter } from "../utils/font";
 import { fetchRestaurantData } from "../utils/api";
 import { restaurantObject } from "../types";
 import * as layout from "@/app/components/Index";
-import { RestaurantList } from "@/features/restaurants/components";
 import BackMainPageButton from "../components/elements/BackMainPageButton/BackMainPageButton";
 import NoData from "@/features/nodata/components/NoData";
 import { decryptString } from "../utils/hashing";
-import Link from "next/link";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Pagination from "@/features/Pagination/components/Pagination";
 
 // レストラン一覧ページのコンポーネント
 const Restaurants = ({
   // ページのurlからクエリを取得
-
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -41,6 +38,8 @@ const Restaurants = ({
       setRestaurantsData(data);
     });
   }, []);
+
+  console.log(restaurantsData);
 
   return (
     <div className={`App ${inter.className}`}>
