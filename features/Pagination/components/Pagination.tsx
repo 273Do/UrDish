@@ -5,18 +5,13 @@ import { useState } from "react";
 
 // ページネーションのコンポーネント
 const Pagination = ({ data }: { data: restaurantObject[] }) => {
-  console.log(data);
-  console.log(data.length);
-
-  // 現在のページングを保持する変数
+  // 現在のページ番号(0スタート)を保持する変数
   const [currentPage, setCurrentPage] = useState<number>(0);
 
   // レストランデータを12個ずつに分割
   const data_array = splitData(data, 12);
-  console.log(data_array);
-  console.log("page_num", currentPage);
 
-  // ページボタンをクリックしたときにデータを切り替える処理
+  // ページボタンをクリックしたときにページを切り替える処理
   const handleClick = (index: number) => {
     setCurrentPage(index);
     // ページトップにスクロール
