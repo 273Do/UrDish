@@ -22,16 +22,14 @@ const Restaurants = ({
     []
   ); // ローディングの状態を保持する変数
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
   // 暗号化されたAPIのパラメータを復号化
   // APIのパラメータを使用できる形に修正
   const decrypted_params = decryptString(
     searchParams.q?.toString().replace(/ /g, "+") as string
   ).replace(/-/g, "=");
 
-  console.log("ページ：", searchParams.page);
-  console.log(decrypted_params);
-
-  // APIを叩いてレストラン一覧のデータを取得
+  // ページが読み込まれたときにAPIを叩いてレストラン一覧のデータを取得
   useEffect(() => {
     const fetch_restaurants = fetchRestaurantData(
       decrypted_params + "&count=72"
