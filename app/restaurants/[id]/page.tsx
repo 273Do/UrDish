@@ -24,7 +24,9 @@ const RestaurantDetail = async ({
       {fetch_restaurant.length === 0 ? (
         <NoData />
       ) : (
-        <RestaurantCard restaurant={restaurant} />
+        <>
+          <RestaurantCard restaurant={restaurant} />
+        </>
       )}
       <BackMainPageButton />
       <layout.Footer />
