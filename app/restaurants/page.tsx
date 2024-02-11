@@ -4,11 +4,11 @@ import { inter } from "../utils/font";
 import { fetchRestaurantData } from "../utils/api";
 import { restaurantObject } from "../types";
 import * as layout from "@/app/components/Index";
-import BackMainPageButton from "../components/elements/BackMainPageButton/BackMainPageButton";
 import NoData from "@/features/nodata/components/NoData";
 import { decryptString } from "../utils/hashing";
 import { useEffect, useState } from "react";
 import Pagination from "@/features/Pagination/components/Pagination";
+import BackMainPageButton from "../components/elements/BackMainPageButton/BackMainPageButton";
 
 // レストラン一覧ページのコンポーネント
 const Restaurants = ({
@@ -43,18 +43,28 @@ const Restaurants = ({
   return (
     <div className={`App ${inter.className}`}>
       <layout.Header />
-      {/* レストランの一覧，ページネーションを表示する． */}
-      {restaurantsData.length === 0 ? (
-        isLoading ? (
-          <p>loading now</p>
+
+      <div className="h-24"></div>
+      <div className=" flex flex-col items-center">
+        {/* レストランの一覧，ページネーションを表示する． */}
+        {restaurantsData.length === 0 ? (
+          isLoading ? (
+            <p>loading now</p>
+          ) : (
+            // 取得したデータが空かつ，ローディングが終わった場合はnoDataページを表示
+            <NoData />
+          )
         ) : (
-          // 取得したデータが空かつ，ローディングが終わった場合はnoDataページを表示
-          <NoData />
-        )
-      ) : (
-        <Pagination data={restaurantsData} />
-      )}
-      <BackMainPageButton />
+          <>
+            <Pagination data={restaurantsData} />
+          </>
+        )}
+
+        <div className=" text-center">
+          <BackMainPageButton />
+        </div>
+      </div>
+      <div className=" h-14"></div>
       <layout.Footer />
     </div>
   );

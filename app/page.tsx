@@ -104,7 +104,7 @@ export default function Home() {
         <div className="h-20"></div>
         <div className="flex flex-col justify-center items-center">
           <p className="text-5xl mb-9">レストランを見つけましょう。</p>
-          <div className=" neumorphism flex flex-col justify-center items-center px-20 py-5">
+          <div className="neumorphism flex flex-col justify-center items-center px-20 py-5">
             <input
               type="range"
               min="0"

@@ -24,27 +24,41 @@ const Pagination = ({ data }: { data: restaurantObject[] }) => {
   // ページの数だけボタンを表示する
   // 現在のページに合わせて，戻るボタンと進むボタンを表示する
   const page_buttons = (
-    <ul>
+    <ul className="flex text-center">
       {currentPage + 1 !== 1 && (
-        <li onClick={() => handleClick(currentPage - 1)}>{"<"}</li>
+        <li
+          className="mx-2 cursor-pointer"
+          onClick={() => handleClick(currentPage - 1)}
+        >
+          {"<"}
+        </li>
       )}
       {data_array.map((item, index) => (
-        <li key={index + 1} onClick={() => handleClick(index)}>
+        <li
+          className="mx-2 cursor-pointer"
+          key={index + 1}
+          onClick={() => handleClick(index)}
+        >
           {index + 1}
         </li>
       ))}
       {currentPage + 1 !== data_array.length && (
-        <li onClick={() => handleClick(currentPage + 1)}>{">"}</li>
+        <li
+          className="mx-2 cursor-pointer"
+          onClick={() => handleClick(currentPage + 1)}
+        >
+          {">"}
+        </li>
       )}
     </ul>
   );
 
   return (
-    <div>
+    <>
       {/* 現在のページに対応するデータ群を一覧表示 */}
       <RestaurantList restaurants={data_array[currentPage]} />
       {page_buttons}
-    </div>
+    </>
   );
 };
 
