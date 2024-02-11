@@ -40,8 +40,6 @@ const Restaurants = ({
     });
   }, []);
 
-  console.log(restaurantsData);
-
   return (
     <div className={`App ${inter.className}`}>
       <layout.Header />

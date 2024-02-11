@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "imgfp.hotp.jp",
       },
+      {
+        protocol: "http",
+        hostname: "webservice.recruit.co.jp",
+      },
     ],
   },
 };

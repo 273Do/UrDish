@@ -3,18 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 55, 55, 55;
+  --background-start-rgb: 233, 237, 240;
+  --background-end-rgb: 233, 237, 240;
 }
 
-@media (prefers-color-scheme: dark) {
+/* ダークモード削除 */
+/* @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 233, 237, 240;
+    --background-start-rgb: 55, 55, 55;
+    --background-end-rgb: 55, 55, 55;
   }
-}
+} */
 
 body {
   color: rgb(var(--foreground-rgb));
@@ -31,3 +32,51 @@ body {
     text-wrap: balance;
   }
 }
+
+/* ページ全体のスタイル */
+.App {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  cursor: default;
+}
+
+/* ニューモーフィズムのスタイル */
+.neumorphism {
+  border-radius: 15px;
+  background: #e9edf0;
+  box-shadow: 5px 5px 13px rgba(156, 173, 183, 0.742), -5px -5px 10px #ffffff;
+  border: none;
+}
+
+/* -----レンジバーのスタイル----- */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  width: 115%;
+  background: #373737;
+  height: 2px;
+  border-radius: 8px;
+}
+
+/* Thumb: Chrome, Safari, Opera, Edge Chromium */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 17px;
+  width: 17px;
+  background: #373737;
+  border-radius: 50%;
+}
+
+/* Thumb: Firefox */
+input[type="range"]::-moz-range-thumb {
+  border: none;
+  height: 10px;
+  width: 10px;
+  background: #373737;
+  border-radius: 50%;
+}
+/* -------------------------- */

@@ -93,12 +93,6 @@ export default function Home() {
         currentLocation.longitude
       }&range-${selectDistance + 1}&order-4`
     );
-    console.log(
-      `&lat-${currentLocation.latitude}&lng-${
-        currentLocation.longitude
-      }&range-${selectDistance + 1}&order-4`
-    );
-    console.log(hash);
     // クエリを含んで次のページへ遷移
     router.push(`/restaurants?q=${hash}`);
   };
@@ -106,21 +100,28 @@ export default function Home() {
   return (
     <div className={`App ${inter.className}`}>
       <layout.Header />
-      <div>
-        <p>レストランを見つけましょう。</p>
-        <div>
-          <input
-            type="range"
-            min="0"
-            max="4"
-            value={selectDistance}
-            onChange={(e) => handleSliderChange(e)}
-            onMouseUp={() => handleMouseUp()}
-          />
-          <p>現在地からの検索半径を指定　{distances_data[selectDistance]}m</p>
+      <div className="h-full flex flex-col justify-center items-center">
+        <div className="h-20"></div>
+        <div className="flex flex-col justify-center items-center">
+          <p className="text-5xl mb-9">レストランを見つけましょう。</p>
+          <div className=" neumorphism flex flex-col justify-center items-center px-20 py-5">
+            <input
+              type="range"
+              min="0"
+              max="4"
+              value={selectDistance}
+              onChange={(e) => handleSliderChange(e)}
+              onMouseUp={() => handleMouseUp()}
+              className="mt-2"
+            />
+            <div className="flex mt-6">
+              <p className="mr-3 opacity-45">現在地からの検索半径を指定</p>
+              <p className="w-14">{distances_data[selectDistance]}m</p>
+            </div>
+          </div>
+          <p>{!isAvailable && "非表示"}</p>
+          <p className="mt-4 opacity-45 cursor-pointer">検索オプション</p>
         </div>
-        <p>{!isAvailable && "非表示"}</p>
-        <p>検索オプション</p>
       </div>
       <layout.Footer />
     </div>
