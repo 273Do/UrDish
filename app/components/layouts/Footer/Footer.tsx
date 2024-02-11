@@ -10,7 +10,7 @@ const Footer = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <p>273doworks</p>
+        <p className=" text-base">273doworks</p>
       </a>
       <a className="mx-2" href="http://webservice.recruit.co.jp/">
         <Image
