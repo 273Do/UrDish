@@ -3,7 +3,6 @@ import Image from "next/image";
 
 // レストラン詳細表示のコンポーネント
 const RestaurantCard = ({ restaurant }: { restaurant: restaurantObject }) => {
-  console.log(restaurant);
   return (
     <div className="neumorphism flex flex-col w-[340px] lg:w-[630px] h-auto lg:h-[630px] mb-8 lg:m-20">
       <div className="lg:flex p-4 pb-0 text-sm lg:text-base">
