@@ -27,7 +27,6 @@ const decryptString = (input: string): string => {
     hash_character.cipher,
     hash_character.key
   ).toString(CryptoJS.enc.Utf8);
-  console.log([input.substring(10, input.length), input.substring(0, 10)]);
   return decrypted;
 };
 

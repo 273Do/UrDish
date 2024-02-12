@@ -6,12 +6,10 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import * as layout from "@/app/components/Index";
 import { encryptString } from "./utils/hashing";
+import { distances_data } from "./utils/distances_data";
 
 // メインページのコンポーネント
 export default function Home() {
-  // 検索半径を格納している配列
-  const distances_data: number[] = [300, 500, 1000, 2000, 3000];
-
   // 検索半径のモードを保持する変数
   const [selectDistance, setSelectDistance] = useState<number>(2);
   // 現在地を取得して，モードなどの設定が可能かの状態を保持する変数
