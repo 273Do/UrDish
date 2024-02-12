@@ -5,16 +5,16 @@ import Image from "next/image";
 const RestaurantCard = ({ restaurant }: { restaurant: restaurantObject }) => {
   console.log(restaurant);
   return (
-    <div className="neumorphism flex flex-col w-[630px] h-[630px] m-20">
-      <div className="flex p-4 pb-0">
+    <div className="neumorphism flex flex-col w-[340px] lg:w-[630px] h-auto lg:h-[630px] mb-8 lg:m-20">
+      <div className="lg:flex p-4 pb-0 text-sm lg:text-base">
         <Image
           src={restaurant.photo.pc.m}
           alt={restaurant.name}
           width={300}
           height={300}
-          className="w-300 h-300"
+          className=" w-100 lg:w-300 h-100 lg:h-300"
         />
-        <div className="flex-row m-3">
+        <div className="flex-row mt-3 lg:m-3">
           <div className="mb-3">
             <p>{restaurant.genre.name}</p>
             <p>{restaurant.sub_genre?.name}</p>
@@ -31,12 +31,12 @@ const RestaurantCard = ({ restaurant }: { restaurant: restaurantObject }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <p>予約はこちらから</p>
+              <p className="underline decoration-solid">予約はこちらから</p>
             </a>
           </div>
         </div>
       </div>
-      <div className="mt-auto p-4 pt-0">
+      <div className="mt-auto p-4 pt-0  text-sm lg:text-base">
         <div className=" mb-4">
           <p>予算</p>
           <span className="opacity-45">

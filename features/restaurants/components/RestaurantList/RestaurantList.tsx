@@ -12,7 +12,7 @@ const RestaurantList = ({
     <div className="m-5 grid grid-cols-1 gap-10 2xl:grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 items-center">
       {restaurants.map((restaurant: restaurantObject) => (
         <Link href={`/restaurants/${restaurant.id}`} key={restaurant.id}>
-          <div className="neumorphism flex flex-col p-2 lg:p-4 h-56 lg:h-64 w-80 lg:w-full transition-all">
+          <div className="neumorphism flex flex-col p-2 lg:p-4 h-auto w-80 lg:w-full transition-all">
             <p className="text-base lg:text-xl text-center mb-2">
               {restaurant.name}
             </p>
