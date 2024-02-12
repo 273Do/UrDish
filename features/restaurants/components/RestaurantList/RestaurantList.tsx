@@ -1,6 +1,7 @@
 import { restaurantObject } from "@/app/types";
 import Link from "next/link";
 import Image from "next/image";
+import { useBudouX } from "@/app/hooks/useBudouX";
 
 // レストラン一覧表示のコンポーネント
 const RestaurantList = ({
@@ -8,6 +9,7 @@ const RestaurantList = ({
 }: {
   restaurants: restaurantObject[];
 }) => {
+  const { parse } = useBudouX();
   return (
     <div className="m-5 grid grid-cols-1 gap-10 2xl:grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 items-center">
       {restaurants.map((restaurant: restaurantObject) => (
@@ -27,9 +29,9 @@ const RestaurantList = ({
               <div className="w-72 m-2 mr-0 lg:m-4 opacity-45">
                 <div>
                   <p>{restaurant.genre.name}</p>
-                  <p>{restaurant.genre.catch}</p>
+                  <p>{parse(restaurant.genre.catch)}</p>
                 </div>
-                <p className="mt-3 lg:mt-6">{restaurant.catch}</p>
+                <p className="mt-3 lg:mt-6">{parse(restaurant.catch)}</p>
               </div>
             </div>
             <p className="mt-auto text-xs text-center opacity-45">

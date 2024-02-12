@@ -32,14 +32,18 @@ const Restaurants = ({
     searchParams.q?.toString().replace(/ /g, "+") as string
   ).replace(/-/g, "=");
 
-  console.log(decrypted_params[decrypted_params.length - 1]);
+  console.log(
+    distances_data[Number(decrypted_params[decrypted_params.length - 1]) - 1]
+  );
 
   // ヘッダーに表示するタイトル
   const page_title =
     restaurantsData.length == 0
       ? ""
       : `現在地から${
-          distances_data[Number(decrypted_params[decrypted_params.length - 1])]
+          distances_data[
+            Number(decrypted_params[decrypted_params.length - 1]) - 1
+          ]
         }m圏内に${restaurantsData.length}件のレストランが存在します。`;
 
   // ページが読み込まれたときにAPIを叩いてレストラン一覧のデータを取得

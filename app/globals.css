@@ -41,6 +41,11 @@ body {
   cursor: default;
 }
 
+/* BudouXを使うためのspamタグ */
+span {
+  display: inline-block;
+}
+
 /* ヘッダー背景のスタイル */
 .header_bg {
   backdrop-filter: blur(5px);
