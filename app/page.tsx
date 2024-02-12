@@ -103,8 +103,10 @@ export default function Home() {
       <div className="h-full flex flex-col justify-center items-center">
         <div className="h-20"></div>
         <div className="flex flex-col justify-center items-center">
-          <p className="text-5xl mb-9">レストランを見つけましょう。</p>
-          <div className="neumorphism flex flex-col justify-center items-center px-20 py-5">
+          <p className=" text-2xl lg:text-5xl mb-9 transition-all">
+            レストランを見つけましょう。
+          </p>
+          <div className="neumorphism flex flex-col justify-center items-center px-12 py-4 lg:px-20 lg:py-5 transition-all">
             <input
               type="range"
               min="0"

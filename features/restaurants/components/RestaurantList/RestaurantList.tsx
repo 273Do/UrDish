@@ -9,10 +9,10 @@ const RestaurantList = ({
   restaurants: restaurantObject[];
 }) => {
   return (
-    <div className=" w-lvw grid grid-cols-3 gap-4 m-6 items-center">
+    <div className=" mt-10 grid grid-cols-1 gap-10 2xl:grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 items-center">
       {restaurants.map((restaurant: restaurantObject) => (
-        <div key={restaurant.id} className="neumorphism m-12 w-full">
-          <Link href={`/restaurants/${restaurant.id}`}>
+        <Link href={`/restaurants/${restaurant.id}`} key={restaurant.id}>
+          <div className="neumorphism p-6 h-56 lg:h-72 w-80 lg:w-full transition-all">
             <Image
               src={restaurant.photo.pc.m}
               alt={restaurant.name}
@@ -25,8 +25,8 @@ const RestaurantList = ({
               <p>{restaurant.genre.catch}</p>
             </div>
             <p>{restaurant.mobile_access}</p>
-          </Link>
-        </div>
+          </div>
+        </Link>
       ))}
     </div>
   );
