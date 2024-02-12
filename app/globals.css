@@ -41,12 +41,42 @@ body {
   cursor: default;
 }
 
+/* ヘッダー背景のスタイル */
+.header_bg {
+  backdrop-filter: blur(5px);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0), rgb(233, 237, 240)),
+    #e9edf000;
+}
+
+/* フッター背景のスタイル */
+.footer_bg {
+  backdrop-filter: blur(5px);
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0),
+      rgb(233, 237, 240)
+    ),
+    #e9edf000;
+}
+
 /* ニューモーフィズムのスタイル */
 .neumorphism {
   border-radius: 15px;
   background: #e9edf0;
   box-shadow: 5px 5px 13px rgba(156, 173, 183, 0.742), -5px -5px 10px #ffffff;
   border: none;
+}
+
+/* スクロールのスタイル */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #373737;
+  border-radius: 20px;
 }
 
 /* -----レンジバーのスタイル----- */
