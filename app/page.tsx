@@ -91,7 +91,7 @@ export default function Home() {
     const hash = encryptString(
       `&lat-${currentLocation.latitude}&lng-${
         currentLocation.longitude
-      }&range-${selectDistance + 1}&order-4`
+      }&range-${selectDistance + 1}`
     );
     // クエリを含んで次のページへ遷移
     router.push(`/restaurants?q=${hash}`);
@@ -99,7 +99,7 @@ export default function Home() {
 
   return (
     <div className={`App ${inter.className}`}>
-      <layout.Header />
+      <layout.Header title={""} />
       <div className="h-full flex flex-col justify-center items-center">
         <div className="h-20"></div>
         <div className="flex flex-col justify-center items-center">

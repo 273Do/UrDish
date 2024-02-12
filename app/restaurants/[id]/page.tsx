@@ -19,16 +19,22 @@ const RestaurantDetail = async ({
 
   return (
     <div className={`App ${inter.className}`}>
-      <layout.Header />
-      {/* レストランの詳細を表示する．表示項目がなければnoDataページを表示 */}
-      {fetch_restaurant.length === 0 ? (
-        <NoData />
-      ) : (
-        <>
-          <RestaurantCard restaurant={restaurant} />
-        </>
-      )}
-      <BackMainPageButton />
+      <layout.Header title={""} />
+      <div className="h-24"></div>
+      <div className=" flex flex-col items-center">
+        {/* レストランの詳細を表示する．表示項目がなければnoDataページを表示 */}
+        {fetch_restaurant.length === 0 ? (
+          <NoData />
+        ) : (
+          <>
+            <RestaurantCard restaurant={restaurant} />
+          </>
+        )}
+        <div className=" text-center">
+          <BackMainPageButton />
+        </div>
+      </div>
+      <div className=" h-14"></div>
       <layout.Footer />
     </div>
   );

@@ -9,11 +9,11 @@ const RestaurantList = ({
   restaurants: restaurantObject[];
 }) => {
   return (
-    <div className=" m-5 grid grid-cols-1 gap-10 2xl:grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 items-center">
+    <div className="m-5 grid grid-cols-1 gap-10 2xl:grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 items-center">
       {restaurants.map((restaurant: restaurantObject) => (
         <Link href={`/restaurants/${restaurant.id}`} key={restaurant.id}>
           <div className="neumorphism flex flex-col p-2 lg:p-4 h-56 lg:h-64 w-80 lg:w-full transition-all">
-            <p className=" text-base lg:text-xl text-center mb-2">
+            <p className="text-base lg:text-xl text-center mb-2">
               {restaurant.name}
             </p>
             <div className="flex mb-2 text-sm lg:text-base">
@@ -22,7 +22,7 @@ const RestaurantList = ({
                 alt={restaurant.name}
                 width={200}
                 height={200}
-                className=" w-36 h-36 lg:w-auto lg:h-auto"
+                className="w-36 h-36 lg:w-auto lg:h-auto"
               />
               <div className="w-72 m-2 mr-0 lg:m-4 opacity-45">
                 <div>

@@ -17,6 +17,9 @@ const Restaurants = ({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) => {
+  // 検索半径を格納している配列
+  const distances_data: number[] = [300, 500, 1000, 2000, 3000];
+
   // 取得したレストラン一覧のデータを格納する変数
   const [restaurantsData, setRestaurantsData] = useState<restaurantObject[]>(
     []
@@ -28,6 +31,16 @@ const Restaurants = ({
   const decrypted_params = decryptString(
     searchParams.q?.toString().replace(/ /g, "+") as string
   ).replace(/-/g, "=");
+
+  console.log(decrypted_params[decrypted_params.length - 1]);
+
+  // ヘッダーに表示するタイトル
+  const page_title =
+    restaurantsData.length == 0
+      ? ""
+      : `現在地から${
+          distances_data[Number(decrypted_params[decrypted_params.length - 1])]
+        }m圏内に${restaurantsData.length}件のレストランが存在します。`;
 
   // ページが読み込まれたときにAPIを叩いてレストラン一覧のデータを取得
   useEffect(() => {
@@ -42,8 +55,7 @@ const Restaurants = ({
 
   return (
     <div className={`App ${inter.className}`}>
-      <layout.Header />
-
+      <layout.Header title={page_title} />
       <div className="h-24"></div>
       <div className=" flex flex-col items-center">
         {/* レストランの一覧，ページネーションを表示する． */}
@@ -59,7 +71,6 @@ const Restaurants = ({
             <Pagination data={restaurantsData} />
           </>
         )}
-
         <div className=" text-center">
           <BackMainPageButton />
         </div>
