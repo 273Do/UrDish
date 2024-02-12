@@ -23,11 +23,12 @@ const Pagination = ({ data }: { data: restaurantObject[] }) => {
 
   // ページの数だけボタンを表示する
   // 現在のページに合わせて，戻るボタンと進むボタンを表示する
+  // 現在のページ番号をハイライトする
   const page_buttons = (
-    <ul className="flex text-center mt-4">
+    <ul className="flex text-center my-2">
       {currentPage + 1 !== 1 && (
         <li
-          className="mx-2 cursor-pointer"
+          className="mx-2  opacity-45 cursor-pointer"
           onClick={() => handleClick(currentPage - 1)}
         >
           {"<"}
@@ -35,6 +36,7 @@ const Pagination = ({ data }: { data: restaurantObject[] }) => {
       )}
       {data_array.map((item, index) => (
         <li
+          style={{ opacity: `${currentPage === index ? 1 : 0.45}` }}
           className="mx-2 cursor-pointer"
           key={index + 1}
           onClick={() => handleClick(index)}
@@ -44,7 +46,7 @@ const Pagination = ({ data }: { data: restaurantObject[] }) => {
       ))}
       {currentPage + 1 !== data_array.length && (
         <li
-          className="mx-2 cursor-pointer"
+          className="mx-2  opacity-45 cursor-pointer"
           onClick={() => handleClick(currentPage + 1)}
         >
           {">"}
