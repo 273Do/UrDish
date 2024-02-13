@@ -1,7 +1,7 @@
 import { inter } from "@/app/utils/font";
 import { fetchRestaurantData } from "@/app/utils/api";
 import * as layout from "@/app/components/Index";
-import { RestaurantCard } from "@/features/restaurants/components";
+import { RestaurantCard } from "@/features/Restaurants/components";
 import BackMainPageButton from "@/app/components/elements/BackMainPageButton/BackMainPageButton";
 import NoData from "@/features/NoData/components/NoData";
 
