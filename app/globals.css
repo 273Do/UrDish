@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 作成したcssファイルの読み込み */
+@import url("../features/Loading/components/Loading.css");
+
 :root {
   --foreground-rgb: 55, 55, 55;
   --background-start-rgb: 233, 237, 240;

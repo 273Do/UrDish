@@ -4,12 +4,13 @@ import { inter } from "../utils/font";
 import { fetchRestaurantData } from "../utils/api";
 import { restaurantObject } from "../types";
 import * as layout from "@/app/components/Index";
-import NoData from "@/features/nodata/components/NoData";
+import NoData from "@/features/NoData/components/NoData";
 import { decryptString } from "../utils/hashing";
 import { useEffect, useState } from "react";
 import Pagination from "@/features/Pagination/components/Pagination";
 import BackMainPageButton from "../components/elements/BackMainPageButton/BackMainPageButton";
 import { distances_data } from "../utils/distances_data";
+import Loading from "@/features/Loading/components/Loading";
 
 // レストラン一覧ページのコンポーネント
 const Restaurants = ({
@@ -47,7 +48,7 @@ const Restaurants = ({
     );
     fetch_restaurants.then((data) => {
       setRestaurantsData(data);
-      setIsLoading(false);
+      // setIsLoading(false);
     });
   }, []);
 
@@ -59,7 +60,7 @@ const Restaurants = ({
         {/* レストランの一覧，ページネーションを表示する． */}
         {restaurantsData.length === 0 ? (
           isLoading ? (
-            <p>loading now</p>
+            <Loading />
           ) : (
             // 取得したデータが空かつ，ローディングが終わった場合はnoDataページを表示
             <NoData />
