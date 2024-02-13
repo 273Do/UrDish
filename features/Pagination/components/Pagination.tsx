@@ -1,6 +1,6 @@
 import { restaurantObject } from "@/app/types";
 import { splitData } from "@/app/utils/splitData";
-import { RestaurantList } from "@/features/restaurants/components";
+import { RestaurantList } from "@/features/Restaurants/components";
 import { useState } from "react";
 
 // ページネーションのコンポーネント
