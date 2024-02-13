@@ -25,7 +25,7 @@ const Pagination = ({ data }: { data: restaurantObject[] }) => {
   // 現在のページに合わせて，戻るボタンと進むボタンを表示する
   // 現在のページ番号をハイライトする
   const page_buttons = (
-    <ul className="flex text-center my-2">
+    <ul className="flex text-center my-2 ">
       {currentPage + 1 !== 1 && (
         <li
           className="mx-2  opacity-45 cursor-pointer"

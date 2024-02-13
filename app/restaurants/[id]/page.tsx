@@ -3,7 +3,7 @@ import { fetchRestaurantData } from "@/app/utils/api";
 import * as layout from "@/app/components/Index";
 import { RestaurantCard } from "@/features/restaurants/components";
 import BackMainPageButton from "@/app/components/elements/BackMainPageButton/BackMainPageButton";
-import NoData from "@/features/nodata/components/NoData";
+import NoData from "@/features/NoData/components/NoData";
 
 // SSR
 // レストラン詳細ページのコンポーネント
