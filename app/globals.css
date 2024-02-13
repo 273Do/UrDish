@@ -4,6 +4,7 @@
 
 /* 作成したcssファイルの読み込み */
 @import url("../features/Loading/components/Loading.css");
+@import url("../features/NoData/components/NoData.css");
 
 :root {
   --foreground-rgb: 55, 55, 55;

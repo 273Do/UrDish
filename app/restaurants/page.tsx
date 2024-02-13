@@ -33,7 +33,7 @@ const Restaurants = ({
 
   // ヘッダーに表示するタイトル
   const page_title =
-    restaurantsData.length == 0
+    restaurantsData.length === 0
       ? ""
       : `現在地から${
           distances_data[
@@ -48,7 +48,7 @@ const Restaurants = ({
     );
     fetch_restaurants.then((data) => {
       setRestaurantsData(data);
-      // setIsLoading(false);
+      setIsLoading(false);
     });
   }, []);
 
@@ -68,11 +68,11 @@ const Restaurants = ({
         ) : (
           <>
             <Pagination data={restaurantsData} />
+            <div className="text-center">
+              <BackMainPageButton />
+            </div>
           </>
         )}
-        <div className="text-center">
-          <BackMainPageButton />
-        </div>
       </div>
       <div className="h-14"></div>
       <layout.Footer />
