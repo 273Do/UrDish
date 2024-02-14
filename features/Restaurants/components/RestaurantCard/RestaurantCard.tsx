@@ -4,7 +4,7 @@ import Image from "next/image";
 // レストラン詳細表示のコンポーネント
 const RestaurantCard = ({ restaurant }: { restaurant: restaurantObject }) => {
   return (
-    <div className="neumorphism flex flex-col w-[340px] lg:w-[630px] h-auto lg:h-[630px] mb-8 lg:m-20">
+    <div className="neumorphism flex flex-col w-[340px] lg:w-[630px] h-auto lg:h-[630px] mb-8 lg:m-20 hover:-translate-y-2 duration-300">
       <div className="lg:flex p-4 pb-0 text-sm lg:text-base">
         <Image
           src={restaurant.photo.pc.m}

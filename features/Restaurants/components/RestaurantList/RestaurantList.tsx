@@ -11,7 +11,11 @@ const RestaurantList = ({
   return (
     <div className="m-5 grid grid-cols-1 gap-10 2xl:grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 items-center">
       {restaurants.map((restaurant: restaurantObject) => (
-        <Link href={`/restaurants/${restaurant.id}`} key={restaurant.id}>
+        <Link
+          href={`/restaurants/${restaurant.id}`}
+          key={restaurant.id}
+          className="hover:-translate-y-2 duration-300"
+        >
           <div className="neumorphism flex flex-col p-2 lg:p-4 h-auto w-80 lg:w-full transition-all">
             <p className="text-base lg:text-xl text-center mb-2">
               {restaurant.name}

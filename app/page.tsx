@@ -104,7 +104,10 @@ export default function Home() {
           <p className=" text-2xl lg:text-5xl mb-9 transition-all">
             レストランを見つけましょう。
           </p>
-          <div className="neumorphism flex flex-col justify-center items-center px-12 py-4 lg:px-20 lg:py-5 transition-all">
+          <div
+            style={!isAvailable ? { opacity: 0.5, pointerEvents: "none" } : {}}
+            className="neumorphism flex flex-col justify-center items-center px-12 py-4 lg:px-20 lg:py-5 transition-all hover:-translate-y-2 duration-300"
+          >
             <input
               type="range"
               min="0"
@@ -114,12 +117,19 @@ export default function Home() {
               onMouseUp={() => handleMouseUp()}
               className="mt-2"
             />
-            <div className="flex mt-6">
-              <p className="mr-3 opacity-45">現在地からの検索半径を指定</p>
-              <p className="w-14">{distances_data[selectDistance]}m</p>
+            <div className="flex mt-6 w-[276px]">
+              {isAvailable ? (
+                <>
+                  <p className="mr-3 opacity-45">現在地からの検索半径を指定</p>
+                  <p className="w-14">{distances_data[selectDistance]}m</p>
+                </>
+              ) : (
+                <p className="text-center mr-3 opacity-45">
+                  現在地を取得できませんでした。
+                </p>
+              )}
             </div>
           </div>
-          <p>{!isAvailable && "非表示"}</p>
           <p className="mt-4 opacity-45 cursor-pointer">検索オプション</p>
         </div>
       </div>
