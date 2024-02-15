@@ -11,6 +11,7 @@ import Pagination from "@/features/Pagination/components/Pagination";
 import BackMainPageButton from "../components/elements/BackMainPageButton/BackMainPageButton";
 import { distances_data } from "../utils/distances_data";
 import Loading from "@/features/Loading/components/Loading";
+import { after } from "node:test";
 
 // レストラン一覧ページのコンポーネント
 const Restaurants = ({
@@ -30,7 +31,6 @@ const Restaurants = ({
   const decrypted_params = decryptString(
     searchParams.q?.toString().replace(/ /g, "+") as string
   ).replace(/-/g, "=");
-
   // ヘッダーに表示するタイトル
   const page_title =
     restaurantsData.length === 0

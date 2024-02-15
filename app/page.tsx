@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import * as layout from "@/app/components/Index";
 import { encryptString } from "./utils/hashing";
 import { distances_data } from "./utils/distances_data";
+import SearchOption from "@/features/SearchOption/components/SearchOption";
 
 // メインページのコンポーネント
 export default function Home() {
@@ -19,41 +20,12 @@ export default function Home() {
     latitude: 0,
     longitude: 0,
   });
-  // 検索フィルターの状態を保持する変数
-  // TODO:別ファイルにオブジェクトを読み込んでstringで返すようにするfubc(locarion, filter)
-  const [filters, setFilters] = useState({
-    wifi: 0,
-    wedding: 0,
-    course: 0,
-    free_drink: 0,
-    free_food: 0,
-    private_room: 0,
-    horigotatsu: 0,
-    tatami: 0,
-    cocktail: 0,
-    shochu: 0,
-    sake: 0,
-    wine: 0,
-    card: 0,
-    non_smoking: 0,
-    charter: 0,
-    ktai: 0,
-    parking: 0,
-    barrier_free: 0,
-    sommelier: 0,
-    night_view: 0,
-    open_air: 0,
-    show: 0,
-    equipment: 0,
-    karaoke: 0,
-    band: 0,
-    tv: 0,
-    lunch: 0,
-    midnight: 0,
-    midnight_meal: 0,
-    english: 0,
-    pet: 0,
-    child: 0,
+  // 検索オプションを表示するかどうかの状態を保持する変数
+  const [isSelectOption, setIsSelectOption] = useState<boolean>(false);
+  // 検索オプションを保持する変数
+  const [option, setOption] = useState<{ keyword: string; order: number }>({
+    keyword: "",
+    order: 1,
   });
 
   // useRouterを使用するための変数
@@ -85,14 +57,25 @@ export default function Home() {
 
   // スライダーからマウスを離したときにページ遷移をする処理
   const handleMouseUp = () => {
+    // APIの検索クエリを作成
     // =が含まれているとうまくハッシュ化することができないので-に置き換えている
-    const hash = encryptString(
-      `&lat-${currentLocation.latitude}&lng-${
-        currentLocation.longitude
-      }&range-${selectDistance + 1}`
-    );
+    const search_query = `&lat-${currentLocation.latitude}&lng-${
+      currentLocation.longitude
+    }${option.keyword.length === 0 ? "" : `&keyword-${option.keyword}`}${
+      option.order === 1 ? "" : `&order-${option.order}`
+    }&range-${selectDistance + 1}`;
+
+    const hash = encryptString(search_query);
     // クエリを含んで次のページへ遷移
     router.push(`/restaurants?q=${hash}`);
+  };
+
+  // 検索オプションを更新する処理
+  const updateOption = (option_id: string, value: number | string) => {
+    setOption((prevCounts) => ({
+      ...prevCounts,
+      [option_id]: value,
+    }));
   };
 
   return (
@@ -108,29 +91,44 @@ export default function Home() {
             style={!isAvailable ? { opacity: 0.5, pointerEvents: "none" } : {}}
             className="neumorphism flex flex-col justify-center items-center px-12 py-4 lg:px-20 lg:py-5 transition-all hover:-translate-y-2 duration-300"
           >
-            <input
-              type="range"
-              min="0"
-              max="4"
-              value={selectDistance}
-              onChange={(e) => handleSliderChange(e)}
-              onMouseUp={() => handleMouseUp()}
-              className="mt-2"
-            />
-            <div className="flex mt-6 w-[276px]">
-              {isAvailable ? (
-                <>
-                  <p className="mr-3 opacity-45">現在地からの検索半径を指定</p>
-                  <p className="w-14">{distances_data[selectDistance]}m</p>
-                </>
-              ) : (
-                <p className="text-center mr-3 opacity-45">
-                  現在地を取得できませんでした。
-                </p>
-              )}
-            </div>
+            {isSelectOption ? (
+              <div className=" w-[276px]">
+                <SearchOption onOptionUpdate={updateOption} />
+              </div>
+            ) : (
+              <>
+                <input
+                  type="range"
+                  min="0"
+                  max="4"
+                  value={selectDistance}
+                  onChange={(e) => handleSliderChange(e)}
+                  onMouseUp={() => handleMouseUp()}
+                  className="mt-2"
+                />
+                <div className="flex mt-6 w-[276px]">
+                  {isAvailable ? (
+                    <>
+                      <p className="mr-3 opacity-45">
+                        現在地からの検索半径を指定
+                      </p>
+                      <p className="w-14">{distances_data[selectDistance]}m</p>
+                    </>
+                  ) : (
+                    <p className="text-center mr-3 opacity-45">
+                      現在地を取得できませんでした。
+                    </p>
+                  )}
+                </div>
+              </>
+            )}
           </div>
-          <p className="mt-4 opacity-45 cursor-pointer">検索オプション</p>
+          <p
+            className="mt-4 opacity-45 hover:opacity-100 cursor-pointer duration-300"
+            onClick={() => setIsSelectOption(!isSelectOption)}
+          >
+            {isSelectOption ? "閉じる" : "検索オプション"}
+          </p>
         </div>
       </div>
       <layout.Footer />
