@@ -38,23 +38,23 @@ const RestaurantCard = ({ restaurant }: { restaurant: restaurantObject }) => {
       <div className="mt-auto p-4 pt-0  text-sm lg:text-base">
         <div className=" mb-4">
           <p>予算</p>
-          <span className="opacity-45">
+          <div className="opacity-45">
             <p>{restaurant.budget.average}</p>
             <p>{restaurant.budget_memo}</p>
-          </span>
+          </div>
         </div>
         <div className=" mb-4">
           <p>住所・アクセス</p>
-          <span className="opacity-45">
+          <div className="opacity-45">
             <p>{restaurant.address}</p>
             <p>{restaurant.access}</p>
-          </span>
+          </div>
         </div>
         <div>
           <p>営業日・定休日</p>
-          <span className="opacity-45">
+          <div className="opacity-45">
             <p>{restaurant.open}</p>
-          </span>
+          </div>
         </div>
       </div>
     </div>
