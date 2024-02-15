@@ -58,14 +58,14 @@ export default function Home() {
   // スライダーからマウスを離したときにページ遷移をする処理
   const handleMouseUp = () => {
     // APIの検索クエリを作成
-    // =が含まれているとうまくハッシュ化することができないので-に置き換えている
-    const search_query = `&lat-${currentLocation.latitude}&lng-${
+    // "="が含まれているとうまくハッシュ化することができないので"-"に置き換えている
+    const restaurant_search_params = `&lat-${currentLocation.latitude}&lng-${
       currentLocation.longitude
     }${option.keyword.length === 0 ? "" : `&keyword-${option.keyword}`}${
       option.order === 1 ? "" : `&order-${option.order}`
     }&range-${selectDistance + 1}`;
 
-    const hash = encryptString(search_query);
+    const hash = encryptString(restaurant_search_params);
     // クエリを含んで次のページへ遷移
     router.push(`/restaurants?q=${hash}`);
   };
