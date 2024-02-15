@@ -1,4 +1,4 @@
-// 外部APIを叩くためのファイル
+// APIに関する関数をまとめたファイル
 
 const API_KEY: string = "a48974a4a49f3e7b"; // APIキー
 
@@ -7,7 +7,7 @@ export const fetchRestaurantData = async (option: string) => {
   try {
     // ローカル環境ではCORSエラーが出るため，Nextjsの機能でもあるプロキシサーバーを経由してAPIを叩いたが，
     // どうしてもエラーが出るため，Chrome拡張機能の「Allow CORS」を用いて回避している．
-    // 本番環境では問題なく動作すると思われる．
+    // mode: "no-cors",を設定してもダメでした．
     const res = await fetch(
       `https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${API_KEY}${option}&format=json`,
       { cache: "no-store" }
