@@ -1,6 +1,12 @@
 import { useRef } from "react";
 
-const SearchOption = ({ onOptionUpdate }: { onOptionUpdate: any }) => {
+const SearchOption = ({
+  option_value,
+  onOptionUpdate,
+}: {
+  option_value: { keyword: string; order: number };
+  onOptionUpdate: any;
+}) => {
   // 検索オプションを更新する親コンポーネントから呼び出す
   const handleOptionUpdate = (option_id: string, value: number | string) => {
     onOptionUpdate(option_id, value);
@@ -17,6 +23,7 @@ const SearchOption = ({ onOptionUpdate }: { onOptionUpdate: any }) => {
           required
           type="text"
           className="input"
+          defaultValue={option_value.keyword}
           onChange={() =>
             handleOptionUpdate("keyword", ref.current?.value || "")
           }
@@ -28,6 +35,7 @@ const SearchOption = ({ onOptionUpdate }: { onOptionUpdate: any }) => {
       <div>
         <select
           className="select mt-1"
+          defaultValue={option_value.order}
           onChange={(e) => handleOptionUpdate("order", e.target.value)}
         >
           <option value="1">距離順</option>

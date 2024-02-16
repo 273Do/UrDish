@@ -93,7 +93,10 @@ export default function Home() {
           >
             {isSelectOption ? (
               <div className=" w-[276px]">
-                <SearchOption onOptionUpdate={updateOption} />
+                <SearchOption
+                  option_value={option}
+                  onOptionUpdate={updateOption}
+                />
               </div>
             ) : (
               <>
