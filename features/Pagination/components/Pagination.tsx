@@ -1,4 +1,4 @@
-import { restaurantObject } from "@/app/types";
+import type { restaurantObject } from "@/app/types";
 import { splitData } from "@/app/utils/splitData";
 import { RestaurantList } from "@/features/Restaurants/components";
 import { useState } from "react";
@@ -25,10 +25,10 @@ const Pagination = ({ data }: { data: restaurantObject[] }) => {
   // 現在のページに合わせて，戻るボタンと進むボタンを表示する
   // 現在のページ番号をハイライトする
   const page_buttons = (
-    <ul className="flex text-center my-2 ">
+    <ul className="my-2 flex text-center ">
       {currentPage + 1 !== 1 && (
         <li
-          className="mx-2  opacity-45 cursor-pointer"
+          className="mx-2 cursor-pointer opacity-45"
           onClick={() => handleClick(currentPage - 1)}
         >
           {"<"}
@@ -46,7 +46,7 @@ const Pagination = ({ data }: { data: restaurantObject[] }) => {
       ))}
       {currentPage + 1 !== data_array.length && (
         <li
-          className="mx-2  opacity-45 cursor-pointer"
+          className="mx-2  cursor-pointer opacity-45"
           onClick={() => handleClick(currentPage + 1)}
         >
           {">"}

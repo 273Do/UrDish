@@ -4,7 +4,7 @@ import Link from "next/link";
 const BackMainPageButton = () => {
   return (
     <Link href="/">
-      <p className=" hover:opacity-50 duration-300">検索画面に戻る</p>
+      <p className=" duration-300 hover:opacity-50">検索画面に戻る</p>
     </Link>
   );
 };

@@ -5,7 +5,7 @@ const SearchOption = ({
   onOptionUpdate,
 }: {
   option_value: { keyword: string; order: number };
-  onOptionUpdate: any;
+  onOptionUpdate: (option_id: string, value: number | string) => void;
 }) => {
   // 検索オプションを更新する親コンポーネントから呼び出す
   const handleOptionUpdate = (option_id: string, value: number | string) => {

@@ -19,7 +19,10 @@ const RestaurantDetail = async ({
 
   return (
     <div className={`App ${inter.className}`}>
-      <layout.Header title={restaurant.name} icon={restaurant.logo_image} />
+      <layout.Header
+        title={fetch_restaurant.length === 0 ? "" : restaurant.name}
+        icon={fetch_restaurant.length === 0 ? "" : restaurant.logo_image}
+      />
       <div className="h-24"></div>
       <div className=" flex flex-col items-center">
         {/* レストランの詳細を表示する．表示項目がなければnoDataページを表示 */}
