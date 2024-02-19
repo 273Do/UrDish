@@ -95,7 +95,7 @@ https://ur-dish.vercel.app/
 オプションは，キーワード検索(「店名かな，店名，住所，駅名，お店ジャンルキャッチ，キャッチのフリーワード」)，「おすすめ順」と「距離順」で検索結果の並び順を指定することができます．
 ブラウザの位置情報をオンにしましょう．
 
-<img style="width:500px" src="https://github.com/273Do/UrDish/assets/114457271/c9153793-67cc-4498-b7e4-09e534b20851"><img style="width:500px" src="https://github.com/273Do/UrDish/assets/114457271/3023102e-5eff-48ae-a05d-26f9d0882311">
+<img style="width:400px" src="https://github.com/273Do/UrDish/assets/114457271/c9153793-67cc-4498-b7e4-09e534b20851"><img style="width:400px" src="https://github.com/273Do/UrDish/assets/114457271/3023102e-5eff-48ae-a05d-26f9d0882311">
 
 ### 2. レストラン一覧表示
 
@@ -113,7 +113,7 @@ https://ur-dish.vercel.app/
 
 レストラン一覧のデータがなかったり，クエリに存在しないレストランのidが指定された場合，特定のページを返すようになっています．
 
-<img style="width:500px" src="https://github.com/273Do/UrDish/assets/114457271/5005c1ac-1a8b-4ed2-8b23-44eeba3f9a65"><img style="width:500px" src="https://github.com/273Do/UrDish/assets/114457271/d1287e56-d0f5-4e87-8ca9-83c77401b829">
+<img style="width:400px" src="https://github.com/273Do/UrDish/assets/114457271/5005c1ac-1a8b-4ed2-8b23-44eeba3f9a65"><img style="width:400px" src="https://github.com/273Do/UrDish/assets/114457271/d1287e56-d0f5-4e87-8ca9-83c77401b829">
 
 ## 🥗 免責事項
 
