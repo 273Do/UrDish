@@ -6,9 +6,9 @@ import Link from "next/link";
 const NoData = () => {
   return (
     <div className={`App ${inter.className}`}>
-      <layout.Header title={""} /> <div className="h-24"></div>
+      <layout.Header title="" /> <div className="h-24"></div>
       <div className=" flex flex-col items-center">
-        <div className={"card neumorphism mt-40 lg:mt-64 "}>
+        <div className="card neumorphism mt-40 lg:mt-64 ">
           <Link href="/">
             <div className="icon">
               <p className="text-3xl">:-(</p>

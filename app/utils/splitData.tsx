@@ -1,4 +1,4 @@
-import { restaurantObject } from "../types";
+import type { restaurantObject } from "../types";
 
 // データをn個ずつに分割する関数
 export const splitData = (array: restaurantObject[], number: number) => {

@@ -1,7 +1,7 @@
 "use client"; //CSR
 
 import { inter } from "./utils/font";
-import { geolocationObject } from "./types";
+import type { geolocationObject } from "./types";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import * as layout from "@/app/components/Index";
@@ -44,7 +44,7 @@ export default function Home() {
   };
 
   // 現在地の取得が失敗したときの処理
-  const errorCallback = (error: GeolocationPositionError) => {
+  const errorCallback = (_error: GeolocationPositionError) => {
     setAvailable(false);
   };
   // --------------------------------------------
@@ -80,16 +80,16 @@ export default function Home() {
 
   return (
     <div className={`App ${inter.className}`}>
-      <layout.Header title={""} />
-      <div className="h-full flex flex-col justify-center items-center">
+      <layout.Header title="" />
+      <div className="flex h-full flex-col items-center justify-center">
         <div className="h-20"></div>
-        <div className="flex flex-col justify-center items-center">
-          <p className=" text-2xl lg:text-5xl mb-9 transition-all">
+        <div className="flex flex-col items-center justify-center">
+          <p className=" mb-9 text-2xl transition-all lg:text-5xl">
             レストランを見つけましょう。
           </p>
           <div
             style={!isAvailable ? { opacity: 0.5, pointerEvents: "none" } : {}}
-            className="neumorphism flex flex-col justify-center items-center px-12 py-4 lg:px-20 lg:py-5 transition-all hover:-translate-y-2 duration-300"
+            className="neumorphism flex flex-col items-center justify-center px-12 py-4 transition-all duration-300 hover:-translate-y-2 lg:px-20 lg:py-5"
           >
             {isSelectOption ? (
               <div className=" w-[276px]">
@@ -109,7 +109,7 @@ export default function Home() {
                   onMouseUp={() => handleMouseUp()}
                   className="mt-2"
                 />
-                <div className="flex mt-6 w-[276px]">
+                <div className="mt-6 flex w-[276px]">
                   {isAvailable ? (
                     <>
                       <p className="mr-3 opacity-45">
@@ -118,7 +118,7 @@ export default function Home() {
                       <p className="w-14">{distances_data[selectDistance]}m</p>
                     </>
                   ) : (
-                    <p className="text-center mr-3 opacity-45">
+                    <p className="mr-3 text-center opacity-45">
                       現在地を取得できませんでした。
                     </p>
                   )}
@@ -127,7 +127,7 @@ export default function Home() {
             )}
           </div>
           <p
-            className="mt-4 opacity-45 hover:opacity-100 cursor-pointer duration-300"
+            className="mt-4 cursor-pointer opacity-45 duration-300 hover:opacity-100"
             onClick={() => setIsSelectOption(!isSelectOption)}
           >
             {isSelectOption ? "閉じる" : "検索オプション"}

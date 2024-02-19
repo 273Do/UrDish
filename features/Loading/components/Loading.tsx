@@ -7,7 +7,7 @@ const Loading = () => {
         <div></div>
         <div></div>
       </div>
-      <p className=" mb-8 -mt-4">Loading now</p>
+      <p className=" -mt-4 mb-8">Loading now</p>
     </>
   );
 };
